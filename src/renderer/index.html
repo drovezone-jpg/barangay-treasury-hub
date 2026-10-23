@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;" />
+  <title>Barangay Treasury Hub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ============ APP SHELL ============ -->
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark">BTH</div>
+        <div>
+          <div class="brand-title">Treasury Hub</div>
+          <div class="brand-sub">Multi-Barangay System</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav" id="sidebar-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer">
+        <button class="btn btn-outline btn-block" id="btn-load-sample">Load Sample Data</button>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="top-header">
+        <div class="header-left">
+          <h1 class="app-title">Barangay Treasury Hub</h1>
+          <span class="header-date" id="header-date"></span>
+        </div>
+        <div class="header-right">
+          <span class="badge badge-amber" id="sample-mode-badge" hidden>SAMPLE DATA MODE</span>
+          <div class="user-profile">
+            <div class="avatar" id="user-initial">T</div>
+            <div>
+              <div class="user-name" id="user-name">Treasurer</div>
+              <div class="user-role">Barangay Treasurer</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content" id="content"></main>
+    </div>
+  </div>
+
+  <!-- ============ FIRST-RUN SETUP / LOGIN ============ -->
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-card">
+      <div class="brand-mark brand-mark-lg">BTH</div>
+      <h1>Barangay Treasury Hub</h1>
+      <p class="auth-sub">Multi-Barangay Financial Management System</p>
+
+      <form id="auth-form" class="auth-form">
+        <label>Username
+          <input type="text" id="auth-username" autocomplete="username" required />
+        </label>
+        <label>Display name <span class="muted">(setup only)</span>
+          <input type="text" id="auth-displayname" placeholder="e.g. Maria Santos" />
+        </label>
+        <label>Password
+          <input type="password" id="auth-password" autocomplete="current-password" required
+                 minlength="8" placeholder="Min. 8 characters" />
+        </label>
+        <button type="submit" class="btn btn-primary btn-block" id="auth-submit">Sign in</button>
+        <p id="auth-error" class="form-error" hidden></p>
+      </form>
+      <p class="auth-note">Offline local application. One authorized treasurer account.</p>
+    </div>
+  </div>
+
+  <script src="vendor/chart.umd.min.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/pages3.js"></script>
+  <script src="js/pages4.js"></script>
+  <script src="js/pages5.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

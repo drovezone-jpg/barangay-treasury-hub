@@ -1,0 +1,64 @@
+{
+  "name": "barangay-treasury-hub",
+  "version": "0.1.0",
+  "description": "Barangay Treasury Hub - Multi-Barangay Financial Management System (Electron + SQLite desktop application)",
+  "main": "src/main/main.js",
+  "author": "Barangay Treasury Hub",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-builder install-app-deps",
+    "test:migrations": "node tests/migration-test.js",
+    "test:part2": "node tests/part2-test.js",
+    "test:part3": "node tests/part3-test.js",
+    "test:part4": "node tests/part4-test.js",
+    "test:part5": "node tests/part5-test.js",
+    "test:part6": "node tests/part6-test.js",
+    "test:auth": "node tests/auth-test.js",
+    "test": "npm run check && npm run test:migrations && npm run test:auth && npm run test:part2 && npm run test:part3 && npm run test:part4 && npm run test:part5 && npm run test:part6",
+    "check": "node tests/syntax-check.js",
+    "dist": "electron-builder --win nsis",
+    "pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0"
+  },
+  "build": {
+    "appId": "ph.barangay.treasuryhub",
+    "productName": "Barangay Treasury Hub",
+    "files": [
+      "src/**/*",
+      "package.json",
+      "!tests/**",
+      "!**/*.md",
+      "!dist/**"
+    ],
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "artifactName": "Barangay-Treasury-Hub-Setup.${ext}",
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false,
+      "shortcutName": "Barangay Treasury Hub"
+    },
+    "npmRebuild": false
+  }
+}
